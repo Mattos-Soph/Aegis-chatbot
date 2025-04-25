@@ -1,0 +1,88 @@
+[2025-04-23 14:05:00] LOGIN FAIL: Tentativa de acesso mal-sucedida para o usuário admin
+→ 🚨 Alerta: Tentativa de login mal-sucedida detectada.
+   IP de origem: 192.168.0.101
+   Número de tentativas: 1
+   Sistema operacional do cliente: Windows 10
+   Origem: Local
+
+[2025-04-23 14:06:23] LOGIN FAIL: Tentativa de acesso mal-sucedida para o usuário admin
+→ 🚨 Alerta: Tentativa de login mal-sucedida detectada.
+   IP de origem: 192.168.0.101
+   Número de tentativas: 2
+   Sistema operacional do cliente: Windows 10
+   Origem: Local
+
+[2025-04-23 14:07:40] MULTIPLE FAILED LOGINS: 5 tentativas em 1 minuto para IP 192.168.0.101
+→ ⚠️ Múltiplas falhas de login detectadas! Pode ser uma tentativa de força bruta.
+   IP de origem: 192.168.0.101
+   Intervalo de tempo: 1 minuto
+   Origem: Local
+   Sistema operacional do cliente: Windows 10
+   Número total de tentativas: 5
+
+[2025-04-23 14:09:30] SUSPICIOUS ACCESS: Acesso de país incomum (Rússia)
+→ 🔍 Acesso suspeito detectado! Foi identificado acesso de um local incomum.
+   País: Rússia
+   IP de origem: 94.237.92.45
+   Tipo de acesso: Login
+   Sistema operacional do cliente: Linux
+   Recomendação: Revisar logs detalhados para verificar a autenticidade.
+
+[2025-04-23 14:10:15] LOGIN SUCCESS: Acesso bem-sucedido para o usuário admin
+→ 🛑 Alerta: Atividade não identificada, revisão necessária.
+   IP de origem: 192.168.0.102
+   País: Brasil
+   Sistema operacional do cliente: Ubuntu Linux
+   Origem: Rede interna
+   Hora da conexão: 14:10:15
+
+[2025-04-23 14:11:45] PASSWORD CHANGE: Senha alterada para o usuário admin
+→ 🔐 Alerta: Senha alterada. Verifique a autenticidade da mudança.
+   IP de origem: 192.168.0.102
+   Sistema operacional do cliente: Ubuntu Linux
+   Usuário afetado: admin
+   Data da alteração: 2025-04-23 14:11:45
+   Observações: Mudança de senha foi realizada com sucesso, mas a origem do acesso não foi verificada.
+
+[2025-04-23 14:12:10] SUSPICIOUS ACCESS: Acesso de país incomum (China)
+→ 🔍 Acesso suspeito detectado! Foi identificado acesso de um local incomum.
+   País: China
+   IP de origem: 115.182.50.58
+   Tipo de acesso: Tentativa de login
+   Sistema operacional do cliente: Windows 7
+   Recomendação: Realizar investigação mais profunda no IP mencionado.
+
+[2025-04-23 14:15:50] SYSTEM ALERT: Conta comprometida - Acesso não autorizado detectado.
+→ ⚠️ ALERTE: Conta comprometida detectada! Investigação imediata é necessária.
+   IP de origem: 94.237.92.45
+   Tipo de ataque: Acesso não autorizado
+   Usuário afetado: admin
+   Hora da detecção: 2025-04-23 14:15:50
+   Recomendação: Mudança imediata de senha e revisão das permissões de acesso.
+
+[2025-04-23 14:16:12] LOGIN SUCCESS: Acesso bem-sucedido para o usuário admin
+→ 🛑 Alerta: Acesso identificado como potencialmente comprometido.
+   IP de origem: 94.237.92.45
+   País: Rússia
+   Sistema operacional do cliente: Windows 10
+   Observações: O acesso foi realizado após a alteração de senha e de um possível ataque anterior.
+
+[2025-04-23 14:18:00] SYSTEM NORMAL: Sem atividades suspeitas recentes
+→ ✅ Tudo certo! Nenhuma atividade suspeita recente.
+   Status do sistema: Normal
+   Última verificação: 2025-04-23 14:18:00
+   Observações: Nenhuma nova falha foi detectada desde a última análise.
+
+[2025-04-23 14:19:30] SYSTEM ALERT: Detecção de tráfego anômalo na rede
+→ ⚠️ ALERTE: Tráfego incomum detectado.
+   IP de origem: 192.168.1.100
+   Quantidade de pacotes: 1500 pacotes em 30 segundos
+   Tipo de tráfego: Tentativa de DDoS
+   Hora da detecção: 2025-04-23 14:19:30
+   Recomendação: Isolar o IP e aplicar mitigação.
+
+[2025-04-23 14:20:10] PASSWORD CHANGE: Senha alterada para o usuário admin
+→ 🔐 Alerta: Senha alterada. Verifique a autenticidade da mudança.
+   IP de origem: 192.168.0.102
+   Sistema operacional do cliente: Ubuntu Linux
+   Observações: Mudança de senha foi realizada após análise de ataque, revisão necessária.
