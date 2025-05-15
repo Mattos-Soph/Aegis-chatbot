@@ -1,26 +1,21 @@
-import sqlite3
-import os
 import subprocess
+import sqlite3
 
 def carregar_logs_do_banco(caminho_banco):
     try:
         conn = sqlite3.connect(caminho_banco)
         cursor = conn.cursor()
-        cursor.execute("SELECT timestamp, evento, usuario, ip FROM logs ORDER BY timestamp DESC")
+        cursor.execute("SELECT usuario, evento, ip, data FROM logs")
         registros = cursor.fetchall()
         conn.close()
 
-        if not registros:
-            return "Nenhum log foi encontrado no banco de dados."
-
-        logs_texto = ""
-        for linha in registros:
-            timestamp, evento, usuario, ip = linha
-            logs_texto += f"{timestamp} | {evento} | Usuário: {usuario} | IP: {ip}\n"
-        return logs_texto
-
-    except sqlite3.Error as e:
-        return f"Erro ao acessar o banco de dados: {e}"
+        logs_formatados = "\n".join(
+            f"[{data}] Usuário: {usuario} | Evento: {evento} | IP: {ip}"
+            for usuario, evento, ip, data in registros
+        )
+        return logs_formatados if logs_formatados else "Nenhum log registrado."
+    except Exception as e:
+        return f"Erro ao carregar logs do banco: {str(e)}"
 
 def perguntar_ollama(pergunta, logs):
     try:
@@ -56,7 +51,7 @@ if __name__ == "__main__":
     print("\n🛡️ Chatbot de Cibersegurança - Aegis")
     print("Digite sua dúvida com base em atividades suspeitas. Escreva 'sair' para encerrar.\n")
 
-    banco = "aegis_logs.db"  # arquivo do banco criado no script criar_banco.py
+    logs = carregar_logs_do_banco("logs.db")  # Caminho do banco de dados SQLite
 
     while True:
         pergunta = input("Você: ")
@@ -64,6 +59,5 @@ if __name__ == "__main__":
             print("Aegis: Saindo... Até logo! 🛡️")
             break
 
-        logs = carregar_logs_do_banco(banco)
         resposta = perguntar_ollama(pergunta, logs)
         print(f"Aegis: {resposta}\n")
